@@ -17,19 +17,29 @@ void setup(){
 void loop(){
   estadoSensor = analogRead(pinoSensor); //LÊ O ESTADO DO SENSOR
   Serial.println(estadoSensor);
- if (estadoSensor < 80){
+ if (estadoSensor < 60){
     digitalWrite(pinoLed, 0); //DESLIGA O LED
     servomotor.write(0); //SETA A POSIÇÃO DO SERVOMOTOR
     
   }
-   else if(estadoSensor > 100 and estadoSensor < 120) {
+  else if(estadoSensor > 60 and estadoSensor < 80) {
     digitalWrite(pinoLed, 1); //LIGA O LED
-    servomotor.write(90); //SETA A POSIÇÃO DO SERVOMOTOR
+    servomotor.write(22.5); //SETA A POSIÇÃO DO SERVOMOTOR
     delay(1000);
   }
-    else if(estadoSensor > 120) {
+  else if(estadoSensor > 80 and estadoSensor < 90) {
     digitalWrite(pinoLed, 1); //LIGA O LED
-    servomotor.write(180); //SETA A POSIÇÃO DO SERVOMOTOR
+    servomotor.write(45); //SETA A POSIÇÃO DO SERVOMOTOR
+    delay(1000);
+  }
+   else if(estadoSensor > 90 and estadoSensor < 100) {
+    digitalWrite(pinoLed, 1); //LIGA O LED
+    servomotor.write(67.5); //SETA A POSIÇÃO DO SERVOMOTOR
+    delay(1000);
+  }
+    else if(estadoSensor > 100) {
+    digitalWrite(pinoLed, 1); //LIGA O LED
+    servomotor.write(90); //SETA A POSIÇÃO DO SERVOMOTOR
     delay(1000);
   }
  
